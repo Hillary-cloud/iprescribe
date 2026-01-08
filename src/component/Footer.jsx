@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, TextField, Button, IconButton } from '@mui/material';
+import { Box, Typography, TextField, Button, IconButton, Snackbar, Alert } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FacebookIcon from '../images/Social-icons-facebook.png';
 import InstagramIcon from '../images/Social-icons-instagram.png';
@@ -10,7 +10,7 @@ import iprescribeLogo2 from '../images/iprescribe-logo2.png';
 
 const FooterContainer = styled(Box)({
   backgroundColor: '#283C85',
-  padding: '60px 40px 20px',
+  padding: '60px 40px 40px',
   color: '#F5F5F5',
 });
 
@@ -37,7 +37,7 @@ const EmailInput = styled(TextField)(({ theme }) => ({
       fontSize: '16px',
     },
     '&::placeholder': {
-      color: '#9A9EA6',
+      color: 'rgba(255, 255, 255, 0.7)',
       opacity: 1,
     },
   },
@@ -71,12 +71,33 @@ const SocialIconButton = styled(IconButton)({
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState('success');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email submitted:', email);
-    // Add your email submission logic here
-    setEmail('');
+    
+    // Simulate API call with random success/error
+    const isSuccess = Math.random() > 0.3; // 70% success rate
+    
+    if (isSuccess) {
+      setSnackbarMessage('🎉 Successfully joined the waitlist! Check your email.');
+      setSnackbarSeverity('success');
+      setEmail('');
+    } else {
+      setSnackbarMessage('❌ Oops! Something went wrong. Please try again.');
+      setSnackbarSeverity('error');
+    }
+    
+    setOpenSnackbar(true);
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnackbar(false);
   };
 
   return (
@@ -86,7 +107,7 @@ const Footer = () => {
         <Typography
           variant="h3"
           sx={{
-            fontSize: { xs: '38px', md: '48px' },
+            fontSize: { xs: '41px', md: '48px' },
             fontWeight: 500,
             mb: 2,
           }}
@@ -132,7 +153,7 @@ const Footer = () => {
               required
               InputProps={{
                 startAdornment: (
-                  <EmailOutlinedIcon sx={{ color: '#9A9EA6', fontSize: 20 }} />
+                  <EmailOutlinedIcon sx={{ mr: 1, color: 'rgba(255, 255, 255, 0.7)', fontSize: 20 }} />
                 ),
               }}
             />
@@ -166,7 +187,7 @@ const Footer = () => {
         </Box>
 
         {/* Social Media Icons - Order 2 on mobile, 3 on desktop */}
-        <Box sx={{ display: 'flex', gap: 1.5, order: { xs: 3, md: 3 } }}>
+        <Box sx={{ display: 'flex', gap: 1.5, order: { xs: 2, md: 3 } }}>
           <SocialIconButton
             href="https://facebook.com"
             target="_blank"
@@ -215,7 +236,7 @@ const Footer = () => {
           sx={{
             fontSize: '14px',
             opacity: 0.8,
-            order: { xs: 2, md: 2 },
+            order: { xs: 3, md: 2 },
           }}
         >
           © 2025, All Rights Reserved

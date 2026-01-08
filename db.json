@@ -1,0 +1,180 @@
+{
+  "stats": [
+    {
+      "id": 1,
+      "title": "Total Patients",
+      "value": 10,
+      "change": 0.035,
+      "period": "Since last week",
+      "color": "#8B5CF6",
+      "bgColor": "#F5F3FF"
+    },
+    {
+      "id": 2,
+      "title": "Virtual Doctors",
+      "value": 5,
+      "change": -0.265,
+      "period": "Since last week",
+      "color": "#3B82F6",
+      "bgColor": "#EFF6FF"
+    },
+    {
+      "id": 3,
+      "title": "Pending Members",
+      "value": 3,
+      "change": -0.039,
+      "period": "Since last week",
+      "color": "#F59E0B",
+      "bgColor": "#FFFBEB"
+    },
+    {
+      "id": 4,
+      "title": "Total Consultations",
+      "value": 0,
+      "change": -0.143,
+      "period": "Since last week",
+      "color": "#10B981",
+      "bgColor": "#ECFDF5"
+    },
+    {
+      "id": 5,
+      "title": "Prescriptions Issued",
+      "value": 0,
+      "change": 0,
+      "period": "Since last week",
+      "color": "#EF4444",
+      "bgColor": "#FEF2F2"
+    }
+  ],
+  "consultationTrend": [
+    { "id": 1, "month": "Jan", "value": 45 },
+    { "id": 2, "month": "Feb", "value": 55 },
+    { "id": 3, "month": "Mar", "value": 48 },
+    { "id": 4, "month": "Apr", "value": 62 },
+    { "id": 5, "month": "May", "value": 58 },
+    { "id": 6, "month": "Jun", "value": 70 },
+    { "id": 7, "month": "Jul", "value": 65 },
+    { "id": 8, "month": "Aug", "value": 75 },
+    { "id": 9, "month": "Sep", "value": 68 },
+    { "id": 10, "month": "Oct", "value": 80 },
+    { "id": 11, "month": "Nov", "value": 72 },
+    { "id": 12, "month": "Dec", "value": 55 }
+  ],
+  "prescriptionTrend": [
+    { "id": 1, "month": "Jan", "value": 180 },
+    { "id": 2, "month": "Feb", "value": 190 },
+    { "id": 3, "month": "Mar", "value": 175 },
+    { "id": 4, "month": "Apr", "value": 200 },
+    { "id": 5, "month": "May", "value": 185 },
+    { "id": 6, "month": "Jun", "value": 210 },
+    { "id": 7, "month": "Jul", "value": 195 },
+    { "id": 8, "month": "Aug", "value": 220 },
+    { "id": 9, "month": "Sep", "value": 205 },
+    { "id": 10, "month": "Oct", "value": 230 },
+    { "id": 11, "month": "Nov", "value": 210 },
+    { "id": 12, "month": "Dec", "value": 190 }
+  ],
+  "activeDoctors": [
+    { "id": 1, "month": "Jan", "doctors": 120, "patients": 85 },
+    { "id": 2, "month": "Feb", "doctors": 135, "patients": 95 },
+    { "id": 3, "month": "Mar", "doctors": 145, "patients": 105 },
+    { "id": 4, "month": "Apr", "doctors": 125, "patients": 90 },
+    { "id": 5, "month": "May", "doctors": 165, "patients": 115 },
+    { "id": 6, "month": "Jun", "doctors": 180, "patients": 130 },
+    { "id": 7, "month": "Jul", "doctors": 155, "patients": 110 },
+    { "id": 8, "month": "Aug", "doctors": 190, "patients": 140 },
+    { "id": 9, "month": "Sep", "doctors": 170, "patients": 125 },
+    { "id": 10, "month": "Oct", "doctors": 200, "patients": 150 },
+    { "id": 11, "month": "Nov", "doctors": 185, "patients": 135 },
+    { "id": 12, "month": "Dec", "doctors": 175, "patients": 125 }
+  ],
+  "specializations": [
+    {
+      "id": 1,
+      "name": "Cardiology",
+      "value": 30,
+      "color": "#10B981"
+    },
+    {
+      "id": 2,
+      "name": "Dermatology",
+      "value": 25,
+      "color": "#F59E0B"
+    },
+    {
+      "id": 3,
+      "name": "Pediatrics",
+      "value": 20,
+      "color": "#3B82F6"
+    },
+    {
+      "id": 4,
+      "name": "Orthopedics",
+      "value": 15,
+      "color": "#8B5CF6"
+    },
+    {
+      "id": 5,
+      "name": "Others",
+      "value": 10,
+      "color": "#EF4444"
+    }
+  ],
+  "recentPatients": [
+    {
+      "id": 1,
+      "signUpDate": "2024-09-05",
+      "name": "Ingo Niskhl",
+      "email": "ingo.niskhl@example.com",
+      "phone": "(765) 555-0157",
+      "lastVisit": "2024-09-06 10:52:37",
+      "location": "Lagos",
+      "device": "iOS",
+      "status": "Verified"
+    },
+    {
+      "id": 2,
+      "signUpDate": "2025-08-19",
+      "name": "Esther Howard",
+      "email": "esther.howard@example.com",
+      "phone": "(205) 555-0100",
+      "lastVisit": "2024-09-06 10:52:37",
+      "location": "Abuja",
+      "device": "Android",
+      "status": "Verified"
+    },
+    {
+      "id": 3,
+      "signUpDate": "2024-07-15",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "(555) 123-4567",
+      "lastVisit": "2024-08-20 14:30:00",
+      "location": "Port Harcourt",
+      "device": "Android",
+      "status": "Verified"
+    },
+    {
+      "id": 4,
+      "signUpDate": "2024-06-10",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phone": "(555) 987-6543",
+      "lastVisit": "2024-09-01 09:15:22",
+      "location": "Kano",
+      "device": "iOS",
+      "status": "Verified"
+    },
+    {
+      "id": 5,
+      "signUpDate": "2024-08-22",
+      "name": "Michael Johnson",
+      "email": "michael.j@example.com",
+      "phone": "(555) 456-7890",
+      "lastVisit": "2024-09-05 16:45:10",
+      "location": "Ibadan",
+      "device": "Android",
+      "status": "Pending"
+    }
+  ]
+}
