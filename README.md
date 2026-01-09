@@ -25,13 +25,13 @@ npm -v
 Clone the project repository using Git:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/Hillary-cloud/iprescribe.git
 ```
 
 Navigate into the project directory:
 
 ```bash
-cd your-repo-name
+cd iprescribe
 ```
 
 ---
