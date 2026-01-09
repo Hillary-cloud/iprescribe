@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import { Box } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import DashboardContent from './pages/Dashboard';
@@ -11,6 +10,7 @@ import Sidebar from './component/Sidebar';
 import MobileHeader from './component/MobileHeader';
 import useStore from './store/useStore';
 import useThemeStore from './store/themeStore';
+import { getTheme } from './theme';
 
 // Protected Route Component
 const PrivateRoute = ({ children }) => {
@@ -25,7 +25,6 @@ const DashboardLayout = ({ children }) => {
   return (
     <Box sx={{ display: 'flex', height: '100vh' }}>
       <Sidebar isOpen={drawerOpen} onClose={toggleDrawer} />
-      
       <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
         <MobileHeader onMenuClick={toggleDrawer} />
         <Box component="main" sx={{ flexGrow: 1, overflow: 'auto' }}>
@@ -36,105 +35,27 @@ const DashboardLayout = ({ children }) => {
   );
 };
 
-// Custom Theme Provider Component
-const CustomThemeProvider = ({ children }) => {
+function App() {
   const mode = useThemeStore((state) => state.mode);
 
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-          ...(mode === 'light'
-            ? {
-                // Light mode colors
-                primary: {
-                  main: '#283C85',
-                  lighter: '#E3EFFF',
-                },
-                background: {
-                  default: '#FFFFFF',
-                  paper: '#FFFFFF',
-                },
-                text: {
-                  primary: '#1a1a1a',
-                  secondary: '#666666',
-                },
-                grey: {
-                  100: '#F8F9FA',
-                  200: '#E0E0E0',
-                  300: '#BDBDBD',
-                },
-              }
-            : {
-                // Dark mode colors
-                primary: {
-                  main: '#5B93FF',
-                  lighter: '#1a2942',
-                },
-                background: {
-                  default: '#121212',
-                  paper: '#1e1e1e',
-                },
-                text: {
-                  primary: '#ffffff',
-                  secondary: '#b3b3b3',
-                },
-                grey: {
-                  100: '#2a2a2a',
-                  200: '#3a3a3a',
-                  300: '#4a4a4a',
-                },
-              }),
-        },
-        components: {
-          MuiCard: {
-            styleOverrides: {
-              root: {
-                backgroundImage: 'none',
-              },
-            },
-          },
-          MuiPaper: {
-            styleOverrides: {
-              root: {
-                backgroundImage: 'none',
-              },
-            },
-          },
-        },
-      }),
-    [mode]
-  );
+  const theme = useMemo(() => getTheme(mode), [mode]);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
-  );
-};
-
-function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-        retry: 1,
-        staleTime: 5 * 60 * 1000,
-      },
+      queries: { refetchOnWindowFocus: false, retry: 1, staleTime: 5 * 60 * 1000 },
     },
   });
 
   return (
-    <CustomThemeProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Routes>
             {/* Public Route */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<Home />} />
-            
+
             {/* Protected Routes */}
             <Route
               path="/dashboard"
@@ -146,13 +67,13 @@ function App() {
                 </PrivateRoute>
               }
             />
-            
+
             {/* Default redirect */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
-    </CustomThemeProvider>
+    </ThemeProvider>
   );
 }
 
