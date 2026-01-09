@@ -12,9 +12,10 @@ import {
   Typography,
   Paper,
 } from '@mui/material';
+import useThemeStore from '../store/themeStore';
 
 /* ===============================
-   Custom Tooltip (Dark)
+   Custom Tooltip
 ================================ */
 const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
@@ -51,6 +52,7 @@ const CustomTooltip = ({ active, payload }) => {
    Chart Component
 ================================ */
 const SpecializationChart = ({ data = [] }) => {
+  const mode = useThemeStore((state) => state.mode);
   const total = data.reduce((sum, d) => sum + d.value, 0);
   const topValue = data[0]?.value || 0;
   const percent = total ? Math.round((topValue / total) * 100) : 0;
@@ -59,10 +61,12 @@ const SpecializationChart = ({ data = [] }) => {
     <Paper
       elevation={0}
       sx={{
-        p: 2.5,
+        p: 2,
         borderRadius: 2,
         border: '1px solid',
-        borderColor: 'grey.200',
+        borderColor: mode === 'light' ? 'grey.200' : 'grey.300',
+        bgcolor: 'background.paper',
+        overflow: 'hidden',
       }}
     >
       {/* Title */}
@@ -77,21 +81,31 @@ const SpecializationChart = ({ data = [] }) => {
 
       {/* Main Layout */}
       <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        spacing={{ xs: 3, md: 3 }}
-        alignItems={{ xs: 'center', md: 'center' }}
+        direction="column"
+        spacing={2}
+        alignItems="center"
+        sx={{
+          minHeight: { xs: 'auto', md: 180 },
+        }}
       >
-        {/* Chart */}
-        <Box sx={{ position: 'relative', width: 160, height: 160 }}>
-          <ResponsiveContainer>
+        {/* Chart Container */}
+        <Box 
+          sx={{ 
+            position: 'relative', 
+            width: { xs: 180, sm: 160, md: 140 }, 
+            height: { xs: 180, sm: 160, md: 140 },
+            flexShrink: 0,
+          }}
+        >
+          <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={data}
                 dataKey="value"
                 cx="50%"
                 cy="50%"
-                innerRadius={52}
-                outerRadius={70}
+                innerRadius="55%"
+                outerRadius="85%"
                 paddingAngle={2}
               >
                 {data.map((entry, i) => (
@@ -110,9 +124,14 @@ const SpecializationChart = ({ data = [] }) => {
               left: '50%',
               transform: 'translate(-50%, -50%)',
               textAlign: 'center',
+              pointerEvents: 'none',
             }}
           >
-            <Typography fontSize="1.1rem" fontWeight={700}>
+            <Typography 
+              fontSize={{ xs: '1.25rem', md: '1.1rem' }}
+              fontWeight={700}
+              color="text.primary"
+            >
               {percent}%
             </Typography>
           </Box>
@@ -122,11 +141,8 @@ const SpecializationChart = ({ data = [] }) => {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              sm: 'repeat(2, 1fr)',
-            },
-            gap: 1.5,
+            gridTemplateColumns: '1fr',
+            gap: 1,
             width: '100%',
           }}
         >
@@ -136,17 +152,26 @@ const SpecializationChart = ({ data = [] }) => {
               direction="row"
               justifyContent="space-between"
               alignItems="center"
+              spacing={1}
             >
-              <Stack direction="row" spacing={1} alignItems="center">
+              <Stack direction="row" spacing={0.75} alignItems="center" flex={1}>
                 <Box
                   sx={{
                     width: 8,
                     height: 8,
                     borderRadius: '50%',
                     bgcolor: item.color,
+                    flexShrink: 0,
                   }}
                 />
-                <Typography variant="caption" color="text.secondary">
+                <Typography 
+                  variant="caption" 
+                  color="text.secondary"
+                  sx={{
+                    fontSize: '0.7rem',
+                    lineHeight: 1.2,
+                  }}
+                >
                   {item.name}
                 </Typography>
               </Stack>
@@ -155,6 +180,11 @@ const SpecializationChart = ({ data = [] }) => {
                 variant="caption"
                 fontWeight={600}
                 color="text.primary"
+                sx={{ 
+                  fontSize: '0.75rem',
+                  minWidth: '18px',
+                  textAlign: 'right',
+                }}
               >
                 {item.value}
               </Typography>

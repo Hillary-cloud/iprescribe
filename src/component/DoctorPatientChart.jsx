@@ -102,7 +102,7 @@ const DoctorPatientChart = ({ data = [] }) => {
       </Stack>
 
       {/* Chart */}
-      <Box sx={{ width: '100%', height: { xs: 220, sm: 180 } }}>
+      <Box sx={{ width: '100%', height: { xs: 220, sm: 180, } }}>
         <ResponsiveContainer>
           <BarChart data={data} barGap={4}>
             <CartesianGrid stroke="#F3F4F6" vertical={false} />
