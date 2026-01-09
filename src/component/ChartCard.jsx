@@ -5,10 +5,9 @@ import { FileDownload as DownloadIcon } from '@mui/icons-material';
 const ChartCard = ({ title, children, onDownload }) => (
   <Card
     sx={{
-      borderRadius: 3,
+      borderRadius: 1,
       boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)',
-      border: '1px solid',
-      borderColor: 'grey.100',
+      
       transition: 'box-shadow 0.3s',
       '&:hover': {
         boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',

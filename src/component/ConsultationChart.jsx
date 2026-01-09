@@ -51,7 +51,7 @@ const ConsultationChart = ({ data }) => (
           stroke="#3B82F6"
           strokeWidth={2}
           fill="url(#consultationGradient)"
-          dot={{ r: 4, fill: '#fff', stroke: '#3B82F6', strokeWidth: 2 }}
+          dot={{ r: 4, fill: '#FFFFFF', stroke: '#3B82F6', strokeWidth: 2 }}
           activeDot={{ r: 6 }}
         />
       </AreaChart>

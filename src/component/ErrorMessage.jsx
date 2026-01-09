@@ -58,7 +58,7 @@ const ErrorMessage = () => (
             color: 'error.dark',
           }}
         >
-          json-server --watch db.json --port 3000
+          Error retrieving data.
         </Box>
       </Alert>
     </Paper>

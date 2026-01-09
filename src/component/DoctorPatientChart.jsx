@@ -74,51 +74,38 @@ const DoctorPatientChart = ({ data = [] }) => {
         p: 3,
         border: '1px solid',
         borderColor: 'grey.200',
-        backgroundColor: '#fff',
+        overflow: 'hidden',
       }}
     >
       {/* Header */}
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          mb: 3,
-        }}
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={2}
+        justifyContent="space-between"
+        mb={3}
       >
-        <Typography
-          variant="subtitle1"
-          sx={{ fontWeight: 600, color: 'grey.900' }}
-        >
+        <Typography fontWeight={600}>
           Active Doctors vs Active Patients
         </Typography>
 
-        {/* Legend */}
-        <Stack direction="row" spacing={2} alignItems="center">
+        <Stack direction="row" spacing={2} flexWrap="wrap">
           <Stack direction="row" spacing={1} alignItems="center">
             <FiberManualRecordIcon sx={{ fontSize: 12, color: '#F59E0B' }} />
-            <Typography variant="caption" color="text.secondary">
-              Doctors
-            </Typography>
+            <Typography variant="caption">Doctors</Typography>
           </Stack>
 
           <Stack direction="row" spacing={1} alignItems="center">
             <FiberManualRecordIcon sx={{ fontSize: 12, color: '#06B6D4' }} />
-            <Typography variant="caption" color="text.secondary">
-              Patients
-            </Typography>
+            <Typography variant="caption">Patients</Typography>
           </Stack>
         </Stack>
-      </Box>
+      </Stack>
 
       {/* Chart */}
-      <Box sx={{ width: '100%', height: 150 }}>
+      <Box sx={{ width: '100%', height: { xs: 220, sm: 180 } }}>
         <ResponsiveContainer>
-          <BarChart data={data} barGap={0}>
-            <CartesianGrid
-              stroke="#F3F4F6"
-              vertical={false}
-            />
+          <BarChart data={data} barGap={4}>
+            <CartesianGrid stroke="#F3F4F6" vertical={false} />
 
             <XAxis
               dataKey="month"
@@ -133,7 +120,6 @@ const DoctorPatientChart = ({ data = [] }) => {
               tickLine={false}
             />
 
-            {/* Hover Summary */}
             <Tooltip content={<CustomTooltip />} />
 
             <Bar
@@ -141,7 +127,7 @@ const DoctorPatientChart = ({ data = [] }) => {
               name="Doctors"
               fill="#F59E0B"
               radius={[4, 4, 0, 0]}
-              barSize={8}
+              barSize={10}
             />
 
             <Bar
@@ -149,7 +135,7 @@ const DoctorPatientChart = ({ data = [] }) => {
               name="Patients"
               fill="#06B6D4"
               radius={[4, 4, 0, 0]}
-              barSize={8}
+              barSize={10}
             />
           </BarChart>
         </ResponsiveContainer>
@@ -157,5 +143,6 @@ const DoctorPatientChart = ({ data = [] }) => {
     </Paper>
   );
 };
+
 
 export default DoctorPatientChart;

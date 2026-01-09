@@ -22,6 +22,7 @@ const DashboardContent = () => {
           justifyContent: 'center',
           minHeight: '100vh',
           p: 3,
+          bgcolor: 'background.default',
         }}
       >
         <Box sx={{ textAlign: 'center' }}>
@@ -42,7 +43,7 @@ const DashboardContent = () => {
     <Box
       sx={{
         p: { xs: 2, md: 3, lg: 4 },
-        bgcolor: 'grey.50',
+        bgcolor: 'background.default',
         minHeight: '100vh',
       }}
     >
