@@ -1,20 +1,124 @@
-<<<<<<< HEAD
-# React + Vite
+# 🚀 Running the React Project Locally
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This document provides a step-by-step guide on how to set up and run this React project on your local machine.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✅ Prerequisites
 
-## React Compiler
+Before you begin, ensure you have the following installed:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Node.js** (version 16 or higher recommended)
+* **npm** (comes bundled with Node.js) or **yarn**
 
-## Expanding the ESLint configuration
+You can verify the installation by running:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# iprescribe
->>>>>>> 818e3c830cc943df6bb242e56906c0a6d6f799ad
+```bash
+node -v
+npm -v
+```
+
+---
+
+## 📦 Step 1: Clone the Repository
+
+Clone the project repository using Git:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+```
+
+Navigate into the project directory:
+
+```bash
+cd your-repo-name
+```
+
+---
+
+## 📥 Step 2: Install Project Dependencies
+
+Install all required dependencies using one of the following commands:
+
+### Using npm
+
+```bash
+npm install
+```
+
+### Using yarn
+
+```bash
+yarn install
+```
+
+---
+
+## ▶️ Step 3: Start the Development Server
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🌐 Step 4: View the Application
+
+Open your web browser and navigate to the appropriate URL shown in your terminal after starting the server.
+
+---
+
+## 🛠️ Step 5: Build for Production (Optional)
+
+To create an optimized production build, run:
+
+```bash
+npm run build
+```
+
+The output will be generated in the `build` or `dist` directory.
+
+---
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+ ├── components/
+ ├── pages/
+ ├── store/
+├── service/
+├── hooks/
+ ├── assets/
+ ├── App.jsx
+ └── main.jsx
+```
+
+---
+
+## 📌 Notes
+
+To see the dashboard, navigate to it manually with 
+
+http://localhost:5173/dashboard
+
+---
+
+## 📌 Other Added features
+
+* This project is built with **React**.
+* **Material UI (MUI)** is used for UI components.
+* Light/Dark theme switching is managed globally via a store.
+* Hero section animations
+* Table filtering and authomatic searching
+* Mobile responsive view for both landing and dashboard pages
+
+---
