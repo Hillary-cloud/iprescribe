@@ -31,7 +31,7 @@ const ErrorMessage = () => (
       </Typography>
       
       <Typography variant="body1" color="error.main" sx={{ mb: 3 }}>
-        Unable to connect to the server. Please ensure JSON Server is running on port 3000.
+        Error retrieving data.
       </Typography>
       
       <Alert
@@ -43,23 +43,6 @@ const ErrorMessage = () => (
           '& .MuiAlert-message': { width: '100%' },
         }}
       >
-        <AlertTitle sx={{ fontWeight: 600, mb: 1 }}>
-          Run this command:
-        </AlertTitle>
-        <Box
-          component="code"
-          sx={{
-            display: 'block',
-            p: 1.5,
-            bgcolor: 'white',
-            borderRadius: 1,
-            fontSize: '0.875rem',
-            fontFamily: 'monospace',
-            color: 'error.dark',
-          }}
-        >
-          Error retrieving data.
-        </Box>
       </Alert>
     </Paper>
   </Box>

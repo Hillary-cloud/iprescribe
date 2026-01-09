@@ -54,10 +54,9 @@ const LoginPage = () => {
       localStorage.setItem('user', JSON.stringify(data.data.user));
       
       // Redirect to dashboard after a short delay
-      setTimeout(() => {
+      
         window.location.href = '/dashboard';
-        // console.log('Redirecting to dashboard...');
-      }, 1000);
+      
     },
     onError: (error) => {
       toast.error(error.message || 'Network error. Please try again.');
@@ -93,6 +92,8 @@ const LoginPage = () => {
           height: '518px',
           borderRadius: 1,
           boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+          backgroundColor: '#FFFFFF',
+
         }}
       >
         <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
@@ -121,7 +122,7 @@ const LoginPage = () => {
               component="img"
               src={iprescribeLogo}
               alt="iPrescribe Logo"
-              sx={{ width: 116, height: 100, position: 'absolute' }}
+              sx={{ width: 86, height: 60, position: 'absolute' }}
             />
           </Box>
 
@@ -133,7 +134,7 @@ const LoginPage = () => {
               fontWeight: 700,
               fontSize: '20px',
               mb: 0.5,
-              color: 'text.primary',
+              color: '#283C85',
             }}
           >
             Login to iPrescribe Admin
@@ -157,7 +158,7 @@ const LoginPage = () => {
                 variant="body2"
                 sx={{
                   mb: 0.5,
-                  color: 'text.secondary',
+                  color: '#000',
                   fontWeight: 500,
                 }}
               >
@@ -173,6 +174,7 @@ const LoginPage = () => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     backgroundColor: '#fff',
+                    color: '#000',
                     '& fieldset': {
                       borderColor: '#e5e7eb',
                     },
@@ -189,7 +191,7 @@ const LoginPage = () => {
                 variant="body2"
                 sx={{
                   mb: 0.5,
-                  color: 'text.secondary',
+                  color: '#000',
                   fontWeight: 500,
                 }}
               >
@@ -218,6 +220,7 @@ const LoginPage = () => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     backgroundColor: '#fff',
+                    color: '#000',
                     '& fieldset': {
                       borderColor: '#e5e7eb',
                     },
@@ -253,12 +256,14 @@ const LoginPage = () => {
               sx={{
                 py: 1.5,
                 backgroundColor: '#1e40af',
+                color: '#fff',
                 textTransform: 'none',
                 fontSize: '1rem',
                 fontWeight: 600,
                 borderRadius: 1.5,
                 '&:hover': {
                   backgroundColor: '#1e3a8a',
+                  color: '#fff',
                 },
                 '&:disabled': {
                   backgroundColor: '#93c5fd',
